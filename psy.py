@@ -1,5 +1,4 @@
 import random
-import sys
 
 def get_computer_choice():
     choices = ['rock', 'paper', 'scissors']
@@ -25,7 +24,7 @@ def determine_winner(user_choice, computer_choice):
 def play_round():
     user_choice = input("Enter rock (r), paper (p), or scissors (s): ")
     choice = normalize_choice(user_choice)
-    if user_choice.lower() not in ['rock', 'paper', 'scissors', "r", "p", "s"]:
+    if choice not in ['rock', 'paper', 'scissors']:
         print("Invalid input. Please try again.")
         return play_round()
     computer_choice = get_computer_choice()
@@ -74,7 +73,7 @@ def main():
         print(f"Computer: {c_wins}")
         print("\n")  
         play_again = input("Play again? (y/n): ").lower()
-        if play_again not in ('y', 'yes') or ('n', 'no'):
+        if play_again not in ('y', 'yes', 'n', 'no'):
             print("Please enter 'y' or 'n'.")
         if play_again in ('n', 'no'):
             print("Thanks for playing! Goodbye!")
